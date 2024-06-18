@@ -1,0 +1,29 @@
+module mux_8X1_tb;
+  reg [7:0]d[0:7];
+  reg [2:0]sel;
+  wire [7:0]y;
+  
+  mux_8X1 uut(.d(d),
+              .sel(sel),
+              .y(y));
+  
+  initial begin
+    integer i;
+    for (i=0;i<=7;i=i+1)
+      d[i]=$random%256;
+  end
+  
+  initial begin
+    integer i;
+    for (i=0;i<=7;i=i+1) begin
+      sel=i;#10;
+    end
+    $stop;
+  end
+  
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars;
+  end
+endmodule
+  
