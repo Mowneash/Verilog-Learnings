@@ -8,10 +8,10 @@ module jk_flipflop(
   always @(posedge clk)
     begin 
       case({j,k})
-        `SET :	q<=1;
+        `SET :	  q<=1;
         `RESET :	q<=0;
         `TOGGLE :	q<=~q;
-        `HOLD :	q<=q;
+        `HOLD :	  q<=q;
         endcase
         end
 endmodule
