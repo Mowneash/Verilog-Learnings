@@ -9,3 +9,11 @@ module d_latch(
       y<=y;
   end
 endmodule
+
+
+//Method 2
+module d_latch(
+  input en,d,
+  output reg y);
+  assign y=en?d:y;
+endmodule
